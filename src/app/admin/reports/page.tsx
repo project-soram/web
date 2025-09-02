@@ -6,9 +6,10 @@ import styles from "../adminPage.module.scss"; // Reusing dashboard styles
 
 const cn = classNames.bind(styles);
 
-// Updated interface to match the actual API response
+// Updated interface to include the 'type' field
 interface Report {
   id: number;
+  type: string; // Added type field
   reason: string;
   status: "PENDING" | "RESOLVED" | "SANCTIONED";
   createdAt: string;
@@ -21,6 +22,11 @@ interface Report {
     nickname: string;
   };
 }
+
+const reportTypeMap: { [key: string]: string } = {
+  VOICE_RESPONSE: "음성 답변",
+  USER_PROFILE: "사용자 프로필",
+};
 
 const AdminReportsPage = () => {
   const [reports, setReports] = useState<Report[]>([]);
@@ -54,7 +60,6 @@ const AdminReportsPage = () => {
         }
 
         const result = await response.json();
-        // Correctly access the reports array from the 'data' key
         setReports(result.data || []);
       } catch (err) {
         if (err instanceof Error) {
@@ -83,6 +88,7 @@ const AdminReportsPage = () => {
                 <tr>
                   <th>ID</th>
                   <th>상태</th>
+                  <th>유형</th>
                   <th>신고 사유</th>
                   <th>신고자</th>
                   <th>피신고자</th>
@@ -104,6 +110,7 @@ const AdminReportsPage = () => {
                           {report.status}
                         </span>
                       </td>
+                      <td>{reportTypeMap[report.type] || report.type}</td>
                       <td>{report.reason}</td>
                       <td>
                         {report.reporter.nickname} ({report.reporter.id})
@@ -116,7 +123,7 @@ const AdminReportsPage = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={6}>접수된 신고가 없습니다.</td>
+                    <td colSpan={7}>접수된 신고가 없습니다.</td>
                   </tr>
                 )}
               </tbody>
