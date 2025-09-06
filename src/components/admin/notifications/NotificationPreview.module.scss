@@ -1,0 +1,87 @@
+$border: rgba(255, 255, 255, 0.12);
+$muted: rgba(255, 255, 255, 0.7);
+$fg: #ffffff;
+$panel: #111320;
+
+.preview {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid $border;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  color: $muted;
+  font-weight: 700;
+}
+
+.notification {
+  padding: 1rem;
+  border-top: 1px solid $border;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.appIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #7c3aed, #22d3ee);
+}
+
+.meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.appName {
+  font-weight: 800;
+  color: $fg;
+}
+
+.now {
+  color: $muted;
+  font-size: 0.85rem;
+}
+
+.content {
+  margin-top: 0.6rem;
+}
+
+.title {
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.body {
+  color: $muted;
+}
+
+.imageWrapper {
+  margin-top: 0.6rem;
+  border: 1px solid $border;
+  border-radius: 12px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}

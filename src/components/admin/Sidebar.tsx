@@ -21,6 +21,7 @@ const Sidebar = () => {
   const menuItems = [
     { href: "/admin", label: "대시보드" },
     { href: "/admin/reports", label: "신고 관리" },
+    { href: "/admin/notifications", label: "알림 보내기" },
     // Add more admin pages here in the future
   ];
 
