@@ -243,7 +243,7 @@ const TermsPage = () => {
         </p>
 
         <p>
-          <strong>본 약관은 2024-12-11부터 적용됩니다.</strong>
+          <strong>본 약관은 2025-10-01부터 적용됩니다.</strong>
         </p>
       </footer>
     </div>
