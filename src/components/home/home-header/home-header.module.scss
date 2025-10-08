@@ -1,0 +1,101 @@
+@import "@/styles/variables.scss";
+
+.container {
+  /* 상단 그라데이션 배경 (좌→우) */
+  background: $thema-gradient;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.inner {
+  /* 가운데 정렬 컨테이너 */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.85;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  color: $thema;
+  background: #ffffff;
+  border-radius: 9999px; /* 캡슐형 */
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 하단 얇은 구분선 효과 */
+.container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* 반응형: 태블릿부터 네비게이션 표시 */
+@media (min-width: 768px) {
+  .inner {
+    padding: 12px 24px;
+  }
+  .nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-text {
+    font-size: 20px;
+  }
+}

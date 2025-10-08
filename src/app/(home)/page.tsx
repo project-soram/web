@@ -1,11 +1,30 @@
 import HomeButtons from "@/components/common/homeButtons";
+import Hero from "@/components/home/hero";
+import Safety from "@/components/home/safety";
+import Gallery from "@/components/home/gallery";
+import Curation from "@/components/home/curation";
+import Cta from "@/components/home/cta";
 import styles from "./page.module.scss";
+import HomeHeader from "@/components/home/home-header";
+import Footer from "@/components/home/footer";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      여기가 랜딩페이지 들어갈곳
-      <HomeButtons />
+      <HomeHeader />
+      <Hero />
+      <Gallery
+        src="/images/mock.png"
+        alt="example"
+        title="Soram"
+        subtitle="Soram"
+      />
+
+      <Curation />
+      <Footer />
+
+      {/* 기존 버튼(임시) */}
+      {/* <HomeButtons /> */}
     </div>
   );
 }

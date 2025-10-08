@@ -1,0 +1,8 @@
+$thema: #ff6b6b;
+/* 한글 주석: 테마색 기반 그라데이션 (좌상단→우하단) */
+$thema-gradient: linear-gradient(
+  135deg,
+  lighten($thema, 10%) 0%,
+  $thema 50%,
+  darken($thema, 10%) 100%
+);

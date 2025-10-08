@@ -1,0 +1,45 @@
+@import "@/styles/variables.scss";
+
+.container {
+  background: #f7f7f8;
+  border-top: 1px solid #eceff3;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  text-align: center;
+  color: #334155;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.brand-text {
+  font-weight: 800;
+}
+
+.company {
+  font-style: normal;
+  font-size: 14px;
+  color: #475569;
+}
+
+.links {
+  margin-top: 8px;
+}
+
+.link {
+  color: #334155;
+  text-decoration: none;
+}
+
+.sep {
+  margin: 0 8px;
+  color: #94a3b8;
+}

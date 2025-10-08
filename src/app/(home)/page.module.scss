@@ -1,0 +1,6 @@
+.page {
+  /* 전체 페이지를 뷰포트 높이에 맞추되, 콘텐츠가 많으면 자연 확장 */
+  min-height: 100vh; /* 폴백 */
+  display: flex;
+  flex-direction: column;
+}
