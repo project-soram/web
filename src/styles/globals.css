@@ -2,25 +2,6 @@
   /* 기본 배경/글자색 (라이트) */
   --background: #fff8f8;
   --foreground: #0b1020;
-
-  /* 브랜드 컬러 시스템 */
-  --color-primary-600: #ff6b6b; /* 주색 */
-  --color-primary-700: #e85a5a; /* hover */
-  --color-primary-100: #ffe3e3; /* 라이트 배경 */
-  --color-primary-200: #ffc9c9;
-
-  --color-secondary-900: #0f172a; /* 딥 네이비 (다크 섹션 배경) */
-  --color-bg-default: #fff8f8; /* 아주 연한 코랄 화이트 */
-  --color-bg-section: #ffffff; /* 기본 섹션 */
-  --color-bg-dark: #0b1020; /* 히어로/CTA 대비용 */
-
-  --color-accent: #2dd4bf; /* 민트 포인트 */
-
-  --color-text-primary: #0b1020;
-  --color-text-inverse: #ffffff;
-  --color-text-muted: #6b7280;
-
-  --color-border: #f1f5f9;
 }
 
 @media (prefers-color-scheme: dark) {

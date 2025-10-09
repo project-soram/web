@@ -12,57 +12,56 @@ const Curation = (props: CurationProps) => {
     <section className={cn("container")}>
       <div className={cn("inner")}>
         <div className={cn("head")}>
-          <p className={cn("eyebrow")}>월유의 차별점</p>
+          <p className={cn("eyebrow")}>소람의 차별점</p>
           <h2 className={cn("title")}>
-            내게 꼭 맞는
-            <br />
-            인연만 찾아 드려요.
+            마음으로 닿는 인연을
+            <br />더 소중하게 만들어요.
           </h2>
           <p className={cn("desc")}>
-            모든 인연을 소중하게 만드는 월유만의 특별한 큐레이션을 확인하세요.
+            당신을 깊이 이해하는 맞춤 큐레이션으로 의미 있는 인연을
+            만들어드려요.
           </p>
-          <button className={cn("cta")} type="button">
-            지금 체험하기
-          </button>
         </div>
-
+        {/* 카드 3개 */}
         <div className={cn("cards")}>
           <article className={cn("card")}>
             <div className={cn("icon")} aria-hidden />
             <h3 className={cn("card-title")}>
-              어떻게 나보다
+              여러 관점으로 읽어낸
               <br />
-              나를 잘 알지?
+              나만을 위한 이해
             </h3>
             <p className={cn("card-desc")}>
-              전문가와 AI 알고리즘이 함께 정교하게 분석해, 당신에게 꼭 맞는
-              인연을 소개합니다.
+              내 답변, 말투, 선택의 흐름을 세밀한 기준으로 함께 살펴봅니다. 단순
+              취향을 넘어 가치관과 공감 포인트까지 입체적으로 파악해, 처음부터
+              대화가 편한 사람만 선택해요.
             </p>
           </article>
 
           <article className={cn("card")}>
             <div className={cn("icon")} aria-hidden />
             <h3 className={cn("card-title")}>
-              라이프스타일, 취향까지
+              취향부터 일상 까지,
               <br />
-              꼼꼼히 분석.
+              생활 맥락을 반영한 매칭
             </h3>
             <p className={cn("card-desc")}>
-              단순 매칭이 아닌, 가치관과 생활 패턴까지 고려하여 더 높은 만족도를
-              제공합니다.
+              음악과 취미 같은 표면적 취향은 물론, 깨어 있는 시간대와 주말 패턴,
+              대화 톤까지 고려합니다. 스펙이 아니라 생활이 맞는 사람과
+              자연스럽게 이어지도록 큐레이션해요
             </p>
           </article>
 
           <article className={cn("card")}>
             <div className={cn("icon")} aria-hidden />
             <h3 className={cn("card-title")}>
-              나를 그대로 담은
+              한 장의 스토리로 전하는 나,
               <br />
-              스토리카드.
+              설명이 필요 없는 소개
             </h3>
             <p className={cn("card-desc")}>
-              질문에 답하면 나만의 스토리카드가 완성되어, 나를 가장 잘 보여줄 수
-              있어요.
+              취향과 생각, 대화 습관이 자연스럽게 드러나도록 설계했습니다. 처음
+              보는 사람에게도 부담 없이, 그러나 깊이 있게 나를 보여줄 수 있어요.
             </p>
           </article>
         </div>

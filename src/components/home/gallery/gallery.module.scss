@@ -1,54 +1,230 @@
+// 모바일 퍼스트 (소람: 흰 배경, 텍스트 블랙, 주요 타이틀 #ff6b6b)
+$bg: #ffffff;
+$text: #000000;
+$muted: #6b7280; // 설명/보조 텍스트
+$accent: #ff6b6b; // 요청하신 타이틀 색
+$labelAccent: #3b82f6; // 라벨 포인트 (작게 사용)
+$cardBg: #f7f8fb; // 플레이스홀더 카드 백그라운드
+$cardShadow: rgba(12, 20, 50, 0.08);
+
 .gallery {
-  background: var(--color-bg);
-}
+  background: $bg;
+  color: $text;
+  padding: 36px 16px;
 
-.head {
-  max-width: 960px;
-  margin: 0 auto 16px;
-  text-align: center;
-}
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.title {
-  font-size: 24px;
-  font-weight: 800;
-}
-@media (min-width: 768px) {
-  .title {
-    font-size: 32px;
+  .heading {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: $labelAccent;
+    margin-bottom: 18px;
+    position: relative;
+
+    .sub {
+      display: block;
+      color: $text;
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* row 간격 축소 */
+    margin-top: 20px; /* 상단 여백 축소 */
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 8px;
+
+    /* 모바일에서는 텍스트 우선. 데스크탑에서 좌우 반전 처리.
+       빈 ruleset 방지를 위해 주석만 남기고 선택자 제거 */
+
+    .col {
+      width: 100%;
+    }
+
+    .col-text {
+      text-align: left;
+
+      .label {
+        font-size: 12px;
+        font-weight: 700;
+        color: $labelAccent;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+
+      .title {
+        /* 요청 반영된 스타일: 큰 글씨는 #ff6b6b */
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0 0 8px;
+        color: $accent; /* #ff6b6b */
+      }
+
+      .desc {
+        /* 서브글은 black */
+        font-size: 14px;
+        color: $text;
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+
+    .col-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .media,
+      .placeholder {
+        width: 88%;
+        max-width: 420px;
+        aspect-ratio: 3 / 4; // 3:4 비율
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 50%;
+          height: 1px;
+          background: rgba(0, 0, 0, 0.04);
+        }
+
+        .placeholder-svg {
+          z-index: 2;
+          width: 100%;
+          height: auto;
+          svg {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
 
-.subtitle {
-  color: var(--color-text-muted);
-}
-
-.grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
+/* 태블릿 이상: 좌우 레이아웃, 교차(reverse) 적용 */
 @media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .gallery {
+    padding: 40px 24px;
+
+    .heading {
+      .sub {
+        font-size: 34px;
+      }
+    }
+
+    .rows {
+      gap: 24px; /* 태블릿에서 간격 축소 */
+    }
+
+    .row {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+
+      .col-text {
+        width: 46%;
+
+        .title {
+          font-size: 24px;
+        }
+        .desc {
+          font-size: 15px;
+        }
+      }
+
+      .col-visual {
+        width: 54%;
+        .media,
+        .placeholder {
+          width: 100%;
+          max-width: none;
+          border-radius: 18px;
+        }
+      }
+
+      &.reverse {
+        flex-direction: row-reverse;
+
+        .col-text {
+          text-align: left; // 가독성 위해 왼쪽 정렬 유지
+        }
+      }
+    }
   }
 }
+
+/* 데스크탑: 넓은 여백, 더 강조된 타이포 */
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
+  .gallery {
+    padding: 150px 32px 40px;
+
+    .heading {
+      .sub {
+        font-size: 40px;
+      }
+    }
+
+    .rows {
+      gap: 10px;
+    }
+
+    .row {
+      gap: 80px;
+      padding: 8px 0; /* 데스크탑에서 상하 여백 축소로 전체 높이 감소 */
+      background-color: transparent; /* 디버그 색 제거 */
+      .col-text {
+        width: 42%;
+        .title {
+          font-size: 28px;
+        }
+        .desc {
+          font-size: 16px;
+          color: $text;
+        }
+      }
+
+      .col-visual {
+        width: 58%;
+
+        .media,
+        .placeholder {
+          // background-color: blue;
+          border-radius: 20px;
+          aspect-ratio: 4 / 5; /* 세로 비율 완화로 시각 요소 높이 감소 */
+          max-height: 520px; /* 과도한 확장 방지 */
+        }
+      }
+    }
   }
-}
-
-.item {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0d0b14;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25);
-}
-
-.item img {
-  width: 100%;
-  height: auto;
-  display: block;
 }

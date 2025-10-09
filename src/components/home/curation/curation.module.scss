@@ -51,24 +51,120 @@
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .card {
-  background: #ffffff;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(255, 107, 107, 0.35), rgba(59, 130, 246, 0.18))
+      border-box;
+  border: 1px solid transparent; /* 그라데이션 보더 */
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 28px rgba(12, 20, 50, 0.12);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+
+  /* 카드 상단 은은한 하이라이트 */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        120px 80px at 85% -20%,
+        rgba(255, 107, 107, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        160px 120px at -10% 0%,
+        rgba(59, 130, 246, 0.08),
+        transparent 60%
+      );
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(12, 20, 50, 0.16);
+  }
+
+  /* 호버 시 타이틀 구분선 강조 */
+  &:hover .card-title::after {
+    transform: scaleX(1.15);
+  }
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6b6b, #ff9f76);
+  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.35);
+  position: relative;
+  margin-bottom: 14px;
+
+  /* 아이콘 내부 디테일 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    opacity: 0.92;
+    border-radius: 2px;
+  }
+  /* 상단 작은 바 */
+  &::before {
+    width: 18px;
+    height: 3px;
+    left: 50%;
+    top: 14px;
+    transform: translateX(-50%);
+  }
+  /* 가운데 점 */
+  &::after {
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 26px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
 }
 
 .card-title {
   font-size: 20px;
   font-weight: 800;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+
+  /* 타이틀-설명 사이 그라데이션 구분선 */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      #ff6b6b,
+      #ff9f76 55%,
+      rgba(59, 130, 246, 0.9)
+    );
+    border-radius: 9999px;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
 }
 
 .card-desc {
   margin-top: 8px;
   color: rgba(0, 0, 0, 0.7);
+  line-height: 1.7;
 }
 
 @media (min-width: 768px) {
@@ -76,12 +172,19 @@
     padding: 140px 24px;
   }
   .cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
   }
 }
 
 @media (min-width: 1024px) {
   .inner {
     padding: 180px 24px;
+  }
+  .card-title {
+    font-size: 22px;
+  }
+  .card-desc {
+    margin-top: 40px;
   }
 }

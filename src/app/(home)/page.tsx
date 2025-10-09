@@ -13,13 +13,7 @@ export default function Home() {
     <div className={styles.page}>
       <HomeHeader />
       <Hero />
-      <Gallery
-        src="/images/mock.png"
-        alt="example"
-        title="Soram"
-        subtitle="Soram"
-      />
-
+      <Gallery />
       <Curation />
       <Footer />
 
