@@ -1,9 +1,7 @@
-"use client";
-
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./NotificationPreview.module.scss";
-
+import Image from "next/image";
 const cn = classNames.bind(styles);
 
 interface NotificationPreviewProps {
@@ -38,7 +36,12 @@ const NotificationPreview: React.FC<NotificationPreviewProps> = ({
           <div className={cn("body")}>{body}</div>
           {imageUrl && (
             <div className={cn("imageWrapper")}>
-              <img src={imageUrl} alt="notification" />
+              <Image
+                src={imageUrl}
+                alt="notification"
+                width={420}
+                height={240}
+              />
             </div>
           )}
         </div>

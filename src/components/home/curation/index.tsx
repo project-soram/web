@@ -3,11 +3,7 @@ import styles from "./curation.module.scss";
 
 const cn = classNames.bind(styles);
 
-interface CurationProps {}
-
-const Curation = (props: CurationProps) => {
-  const {} = props;
-
+const Curation = () => {
   return (
     <section className={cn("container")}>
       <div className={cn("inner")}>

@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 
 const NotFoundPage = () => {
@@ -38,9 +37,7 @@ const NotFoundPage = () => {
         찾으시는 페이지가 존재하지 않아요!
       </p>
       <button
-        // onClick={() =>
-        //   router.replace(`${process.env.NEXT_PUBLIC_URL + "/signin"}`)
-        // }
+        onClick={() => router.replace(`${process.env.NEXT_PUBLIC_SITE_URL}`)}
         style={{
           padding: "10px 20px",
           backgroundColor: "#333",

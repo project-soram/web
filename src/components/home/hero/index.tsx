@@ -4,11 +4,7 @@ import Image from "next/image";
 
 const cn = classNames.bind(styles);
 
-interface HeroProps {}
-
-const Hero = (props: HeroProps) => {
-  const {} = props;
-
+const Hero = () => {
   return (
     <section className={cn("container")}>
       <div className={cn("inner")}>
