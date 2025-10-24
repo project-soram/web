@@ -84,6 +84,12 @@
   background: rgba(255, 255, 255, 0.35);
 }
 
+.admin-btn {
+  color: #ff9e9e;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
 /* 반응형: 태블릿부터 네비게이션 표시 */
 @media (min-width: 768px) {
   .inner {

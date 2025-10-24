@@ -24,7 +24,7 @@ export default function NotificationsPage() {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
-      router.push("/admin/login");
+      router.push("/sr-adm/login");
     }
   }, [router]);
 

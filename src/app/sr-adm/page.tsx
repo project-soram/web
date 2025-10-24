@@ -20,7 +20,7 @@ const AdminDashboardPage = () => {
     const fetchData = async () => {
       const token = localStorage.getItem("accessToken");
       if (!token) {
-        router.push("/admin/login");
+        router.push("/sr-adm/login");
         return;
       }
 
@@ -37,7 +37,7 @@ const AdminDashboardPage = () => {
 
         if (response.status === 401 || response.status === 403) {
           localStorage.removeItem("accessToken");
-          router.push("/admin/login");
+          router.push("/sr-adm/login");
           return;
         }
 

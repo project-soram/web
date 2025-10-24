@@ -11,7 +11,7 @@ type Item = {
 };
 
 const buttons: Item[] = [
-  { id: 1, name: "admin", route: "/admin/login" },
+  { id: 1, name: "admin", route: "/sr-adm/login" },
   { id: 2, name: "privacy", route: "/privacy", target: "_blank" },
   { id: 3, name: "deletionpolicy", route: "/deletionpolicy", target: "_blank" },
   { id: 4, name: "terms", route: "/terms", target: "_blank" },

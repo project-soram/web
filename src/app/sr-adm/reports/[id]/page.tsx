@@ -51,7 +51,7 @@ const ReportDetailPage = () => {
       setIsLoading(true);
       const token = localStorage.getItem("accessToken");
       if (!token) {
-        router.push("/admin/login");
+        router.push("/sr-adm/login");
         return;
       }
 
@@ -64,7 +64,7 @@ const ReportDetailPage = () => {
 
         if (response.status === 401 || response.status === 403) {
           localStorage.removeItem("accessToken");
-          router.push("/admin/login");
+          router.push("/sr-adm/login");
           return;
         }
 
@@ -163,7 +163,7 @@ const ReportDetailPage = () => {
     <div className={cn("pageContent")}>
       <div className={cn("pageHeader")}>
         <h1 className={cn("title")}>신고 상세 정보 (ID: {id})</h1>
-        <Link href="/admin/reports" className={cn("backButton")}>
+        <Link href="/sr-adm/reports" className={cn("backButton")}>
           &larr; 목록으로 돌아가기
         </Link>
       </div>

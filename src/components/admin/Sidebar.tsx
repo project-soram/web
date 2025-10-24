@@ -15,13 +15,13 @@ const Sidebar = () => {
   const handleLogout = () => {
     // In a real app, you might want to call a logout API endpoint
     localStorage.removeItem("accessToken");
-    router.push("/admin/login");
+    router.push("/sr-adm/login");
   };
 
   const menuItems = [
-    { href: "/admin", label: "대시보드" },
-    { href: "/admin/reports", label: "신고 관리" },
-    { href: "/admin/notifications", label: "알림 보내기" },
+    { href: "/sr-adm", label: "대시보드" },
+    { href: "/sr-adm/reports", label: "신고 관리" },
+    { href: "/sr-adm/notifications", label: "알림 보내기" },
     // Add more admin pages here in the future
   ];
 

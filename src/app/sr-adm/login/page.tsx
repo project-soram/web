@@ -38,7 +38,7 @@ const AdminLoginPage = () => {
       const data = await response.json();
       if (data.accessToken) {
         localStorage.setItem("accessToken", data.accessToken);
-        router.push("/admin"); // Redirect to admin dashboard on success
+        router.push("/sr-adm"); // Redirect to admin dashboard on success
       }
     } catch (err) {
       if (err instanceof Error) {

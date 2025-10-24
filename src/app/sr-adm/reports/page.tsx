@@ -38,7 +38,7 @@ const AdminReportsPage = () => {
     const fetchReports = async () => {
       const token = localStorage.getItem("accessToken");
       if (!token) {
-        router.push("/admin/login");
+        router.push("/sr-adm/login");
         return;
       }
 
@@ -51,7 +51,7 @@ const AdminReportsPage = () => {
 
         if (response.status === 401 || response.status === 403) {
           localStorage.removeItem("accessToken");
-          router.push("/admin/login");
+          router.push("/sr-adm/login");
           return;
         }
 
@@ -100,7 +100,9 @@ const AdminReportsPage = () => {
                   reports.map((report) => (
                     <tr
                       key={report.id}
-                      onClick={() => router.push(`/admin/reports/${report.id}`)}
+                      onClick={() =>
+                        router.push(`/sr-adm/reports/${report.id}`)
+                      }
                     >
                       <td>{report.id}</td>
                       <td>
