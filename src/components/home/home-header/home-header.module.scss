@@ -1,4 +1,4 @@
-@import "@/styles/variables.scss";
+@use "@/styles/variables" as *;
 
 .container {
   /* 상단 그라데이션 배경 (좌→우) */
