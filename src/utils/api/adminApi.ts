@@ -1,5 +1,5 @@
 // 관리자용 api 모음
-import { ReportDetailType, SanctionType } from "../type";
+import { ReportDetailType, SanctionType, NotificationType } from "../type";
 import instance from "./axios";
 
 // 1. 관리자 로그인
@@ -47,4 +47,13 @@ export const resolveAdminReport = async (id: number) => {
   return data;
 };
 
-//8. 전체알림
+// 8. 전체알림 [시그니처 수정]
+export const sendBroadcastNotification = async (
+  payload: NotificationType // [수정] 개별 파라미터 대신 DTO 객체를 받도록 변경
+) => {
+  const { data } = await instance.post(
+    `/admin/notifications/broadcast`,
+    payload // [수정] 객체 전체를 전송
+  );
+  return data;
+};

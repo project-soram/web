@@ -62,3 +62,11 @@ export interface SanctionType {
   type: string;
   reason: string;
 }
+
+// 전체 푸시 알림 타입
+export interface NotificationType {
+  title: string;
+  body: string;
+  linkUrl?: string; // [추가]
+  imageUrl?: string; // [추가]
+}
