@@ -3,9 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import classNames from "classnames/bind";
-import { useMutation } from "@tanstack/react-query"; // [추가] react-query
 import { toast } from "react-toastify"; // [추가] 피드백을 위한 toast
-
 import styles from "./notificationsPage.module.scss";
 import NotificationForm from "@/components/admin/notifications/NotificationForm";
 import NotificationPreview from "@/components/admin/notifications/NotificationPreview";
@@ -22,6 +20,7 @@ const BODY_MAX = 120;
 
 export default function NotificationsPage() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   // [수정] 여러 개의 state를 하나의 객체로 관리
   const [formState, setFormState] = useState<NotificationType>({
@@ -31,8 +30,6 @@ export default function NotificationsPage() {
     imageUrl: "",
   });
 
-  // [제거] banner, isSubmitting state (useMutation과 toast로 대체)
-
   // [유지] 기존 인증 확인 로직
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -40,30 +37,6 @@ export default function NotificationsPage() {
       router.push("/sr-adm/login");
     }
   }, [router]);
-
-  // [추가] react-query useMutation을 사용한 API 호출 관리
-  const { mutate: sendNotification, isPending: isSubmitting } = useMutation({
-    mutationFn: sendBroadcastNotification,
-    onSuccess: (data) => {
-      // 성공 시 toast 알림
-      toast.success(data.message || "전체 알림이 성공적으로 발송되었습니다.");
-      // 폼 초기화
-      setFormState({
-        title: "",
-        body: "",
-        linkUrl: "",
-        imageUrl: "",
-      });
-    },
-    onError: (error: any) => {
-      // 실패 시 toast 알림
-      const errorMessage =
-        error?.response?.data?.message ||
-        error.message ||
-        "알림 발송에 실패했습니다. 다시 시도해주세요.";
-      toast.error(errorMessage);
-    },
-  });
 
   // [수정] formState를 사용하도록 의존성 및 로직 변경
   const isValid = useMemo(() => {
@@ -86,7 +59,7 @@ export default function NotificationsPage() {
 
   // [수정] API를 호출하도록 handleSubmit 변경
   const handleSubmit = async () => {
-    if (!isValid || isSubmitting) return; // 중복 제출 방지
+    if (!isValid || isLoading) return; // 중복 제출 방지
 
     // API DTO에 맞게 payload 정제
     const payload: NotificationType = {
@@ -96,7 +69,31 @@ export default function NotificationsPage() {
       imageUrl: formState.imageUrl?.trim() || undefined,
     };
 
-    sendNotification(payload); // useMutation 실행
+    setIsLoading(true);
+    try {
+      const data = await sendBroadcastNotification(payload);
+      toast.success(data.message || "전체 알림이 성공적으로 발송되었습니다.");
+      setFormState({
+        title: "",
+        body: "",
+        linkUrl: "",
+        imageUrl: "",
+      });
+    } catch (error: unknown) {
+      setIsLoading(false);
+      const axiosMessage =
+        typeof (error as { response?: { data?: { message?: unknown } } })
+          ?.response?.data?.message === "string"
+          ? ((error as { response?: { data?: { message?: unknown } } })
+              ?.response?.data?.message as string)
+          : undefined;
+      const message =
+        axiosMessage ??
+        (error instanceof Error ? error.message : "알림 발송에 실패했습니다.");
+      toast.error(message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -124,7 +121,7 @@ export default function NotificationsPage() {
             titleMax={TITLE_MAX}
             bodyMax={BODY_MAX}
             isValid={isValid}
-            isSubmitting={isSubmitting} // useMutation의 isPending 상태 전달
+            isSubmitting={isLoading} // useMutation의 isPending 상태 전달
             onChange={handleChange}
             onSubmit={handleSubmit}
           />
