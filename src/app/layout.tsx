@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
     // 링크 공유 시 보여질 대표 이미지
     images: [
-      { url: "/icons/logo.png", width: 1200, height: 630, alt: "Soram" },
+      { url: "/icons/og-logo.png", width: 1200, height: 630, alt: "Soram" },
     ],
   },
   twitter: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: "이야기와 목소리로 연결된 우리, 소람",
 
     // 링크 공유 시 보여질 대표 이미지
-    images: ["/icons/logo.png"],
+    images: ["/icons/og-logo.png"],
   },
   // 주소가 여러개일 때 어떤 주소를 대표로 할지 설정
   alternates: { canonical: "/" },

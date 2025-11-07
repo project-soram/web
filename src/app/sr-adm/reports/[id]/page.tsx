@@ -50,46 +50,6 @@ const ReportDetailPage = () => {
     fetchReportDetail();
   }, [id, router]);
 
-  const handleApiCall = async (
-    url: string,
-    options: RequestInit,
-    successStatus: ReportDetailType["status"]
-  ) => {
-    setIsProcessing(true);
-    setError("");
-    const token = localStorage.getItem("accessToken");
-
-    try {
-      const response = await fetch(url, {
-        ...options,
-        headers: {
-          ...options.headers,
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.message || "작업에 실패했습니다.");
-      }
-
-      // Update status on success
-      setReport((prev) => (prev ? { ...prev, status: successStatus } : null));
-      alert("처리가 완료되었습니다.");
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-        alert(`오류: ${err.message}`);
-      } else {
-        setError("알 수 없는 오류가 발생했습니다.");
-        alert("알 수 없는 오류가 발생했습니다.");
-      }
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
   const handleSanction = async () => {
     if (!report) return;
     const reason = window.prompt(
@@ -144,7 +104,7 @@ const ReportDetailPage = () => {
       <div className={cn("pageHeader")}>
         <h1 className={cn("title")}>신고 상세 정보 (ID: {id})</h1>
         <Link href="/sr-adm/reports" className={cn("backButton")}>
-          &larr; 목록으로 돌아가기
+          목록으로 돌아가기
         </Link>
       </div>
 
