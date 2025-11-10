@@ -16,9 +16,11 @@ COPY . .
 
 # 빌드 타임 환경 변수 선언
 ARG NEXT_PUBLIC_SITE_URL
+ARG NEXT_PUBLIC_API_URL
 
 # ENV로 설정하여 'npm run build'가 인식하도록 함
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
 # Next.js 앱 빌드
 RUN npm run build
