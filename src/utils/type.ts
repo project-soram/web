@@ -28,12 +28,36 @@ export interface ReportType {
   };
 }
 
-//리포트 상세 타입
+// ---  신고 상세 조회를 위한 상세 타입 ---
+// 1. 음성 답변 (VOICE_RESPONSE) 타입
+export type ReportedVoiceResponse = {
+  id: number;
+  type: "TEXT" | "VOICE";
+  textContent: string | null;
+  audioUrl: string | null;
+  topicBox: {
+    id: number; // admin.service.ts에서 선택함
+    title: string;
+  };
+};
+
+// 2. 프로필 답변 (USER_PROFILE) 타입
+export type ReportedProfileAnswer = {
+  id: number;
+  content: string;
+  isPrimary: boolean;
+  question: {
+    id: number;
+    content: string; // 질문 내용
+  };
+};
+
+// 리포트 상세 타입
 export interface ReportDetailType {
   id: number;
   reason: string;
   details: string;
-  type: string;
+  type: string; // "USER_PROFILE" | "VOICE_RESPONSE" | "CHAT_MESSAGE"
   status: "PENDING" | "RESOLVED";
   createdAt: string;
   reporter: {
@@ -43,17 +67,8 @@ export interface ReportDetailType {
   reported: {
     id: number;
     nickname: string;
-  };
-  reportedContent?: {
-    id: number;
-    type: "TEXT" | "VOICE";
-    textContent: string | null;
-    audioUrl: string | null;
-    topicBox: {
-      title: string;
-      content: string;
-    };
-  };
+  }; // reportedContent 타입을 Union 타입으로 변경
+  reportedContent?: ReportedVoiceResponse | ReportedProfileAnswer[];
 }
 
 //제재 타입
@@ -67,6 +82,6 @@ export interface SanctionType {
 export interface NotificationType {
   title: string;
   body: string;
-  linkUrl?: string; // [추가]
-  imageUrl?: string; // [추가]
+  linkUrl?: string;
+  imageUrl?: string;
 }
