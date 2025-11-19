@@ -57,7 +57,7 @@ export interface ReportDetailType {
   id: number;
   reason: string;
   details: string;
-  type: string; // "USER_PROFILE" | "VOICE_RESPONSE" | "CHAT_MESSAGE"
+  type: string;
   status: "PENDING" | "RESOLVED";
   createdAt: string;
   reporter: {
@@ -67,8 +67,10 @@ export interface ReportDetailType {
   reported: {
     id: number;
     nickname: string;
-  }; // reportedContent 타입을 Union 타입으로 변경
+  };
   reportedContent?: ReportedVoiceResponse | ReportedProfileAnswer[];
+  //  제재 정보 (null이면 '문제 없음' 처리된 것)
+  sanction: SanctionDetail | null;
 }
 
 //제재 타입
@@ -76,6 +78,7 @@ export interface SanctionType {
   reportId: number;
   type: string;
   reason: string;
+  duration?: number; // 선택적 필드
 }
 
 // 전체 푸시 알림 타입
@@ -84,4 +87,13 @@ export interface NotificationType {
   body: string;
   linkUrl?: string;
   imageUrl?: string;
+}
+
+//  제재 상세 정보 타입 (DB의 Sanction 모델과 일치)
+export interface SanctionDetail {
+  id: number;
+  type: "CONTENT_REMOVAL" | "WARNING" | "TEMPORARY_BAN" | "PERMANENT_BAN";
+  reason: string;
+  expiresAt: string | null; // ISO Date string
+  createdAt: string;
 }
