@@ -6,7 +6,6 @@
   overflow: hidden; /* 이미지 크롭 */
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: column;
   gap: 30px;
 }
@@ -47,13 +46,8 @@
   }
 }
 
-.right-content {
-  width: 100%;
-}
-
 .image-list {
   display: flex;
-  align-items: flex-end; /* 한국어 주석: 디바이스 하단 정렬 */
   justify-content: center;
   transform: translateY(70px);
 }
@@ -94,12 +88,13 @@
 @media (min-width: 1024px) {
   .container {
     flex-direction: row;
-    padding: 200px 300px 0 300px;
+    padding-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .left-content {
-    align-items: flex-start;
     margin-bottom: auto;
-    width: 100%;
     gap: 40px;
   }
   .text-content {
@@ -118,7 +113,6 @@
   }
   .image-list {
     gap: 0;
-    /* 한국어 주석: 더 강한 하단 크롭 효과 */
     transform: translateY(90px);
   }
   .mock-item {
@@ -126,6 +120,6 @@
   }
   .image {
     width: 300px;
-    height: 560px;
+    height: 600px;
   }
 }

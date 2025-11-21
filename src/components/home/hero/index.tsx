@@ -48,7 +48,6 @@ const Hero = () => {
                 alt={img.alt}
                 width={220}
                 height={420}
-                sizes="(min-width: 1024px) 300px, (min-width: 768px) 260px, 220px"
                 priority={img.priority === true}
                 className={cn("image")}
               />
