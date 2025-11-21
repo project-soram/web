@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: "홈",
+  title: "소람",
   description: "이야기와 목소리로 연결된 우리, 소람",
 };
+
 import Hero from "@/components/home/hero";
 import Gallery from "@/components/home/gallery";
 import Curation from "@/components/home/curation";
