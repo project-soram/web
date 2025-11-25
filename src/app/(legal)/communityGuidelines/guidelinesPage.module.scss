@@ -1,0 +1,99 @@
+.container {
+  // ✅ [공통 적용] 배경색 흰색 고정 (다크모드 무시)
+  background-color: #ffffff;
+  min-height: 100vh;
+
+  padding: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+
+  // ✅ [공통 적용] 글자색 검정 고정
+  color: #222;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    word-break: keep-all; // 한글 단어 잘림 방지
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-top: 16px;
+    font-weight: bold;
+    color: #444;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 8px 0;
+    word-break: keep-all;
+  }
+
+  ul,
+  ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: #222;
+
+    li {
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  // 🔴 중요 경고 박스 (성범죄 경고용)
+  .warning-box {
+    background-color: #fff0f0; // 연한 붉은 배경
+    border: 1px solid #ffcccc;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+
+    p {
+      color: #d32f2f; // 붉은 텍스트
+      font-weight: 500;
+    }
+
+    strong {
+      color: #b71c1c; // 더 진한 붉은 강조
+    }
+  }
+
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+
+    p {
+      color: #666;
+      font-size: 1.4rem;
+    }
+
+    strong {
+      color: #222;
+    }
+  }
+}

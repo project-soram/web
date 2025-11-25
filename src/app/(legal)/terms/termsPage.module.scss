@@ -1,7 +1,15 @@
 .container {
+  //  배경색 흰색 고정 (다크모드 무시)
+  background-color: #ffffff;
+
+  //  내용이 적어도 화면 전체를 채우도록 설정
+  min-height: 100vh;
+
   padding: 20px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
+
+  //   글자색 검정 고정
   color: #222;
 
   h1 {
@@ -14,23 +22,43 @@
     font-size: 2.2rem;
     margin-top: 40px;
     margin-bottom: 12px;
+    border-bottom: 2px solid #eee; // 구분을 위해 밑줄 추가 (선택사항)
+    padding-bottom: 10px;
   }
 
   h3 {
     font-size: 1.7rem;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-top: 16px;
+    font-weight: bold;
   }
 
   p {
     font-size: 1.5rem;
-    margin: 5px;
+    margin: 5px 0;
   }
 
-  ul {
+  ul,
+  ol {
     padding-left: 20px;
     margin-bottom: 20px;
+    // 다크모드 영향 방지를 위해 리스트 스타일 색상도 지정 가능
+    color: #222;
 
     li {
       margin-bottom: 6px;
+      font-size: 1.5rem;
+
+      // 중첩 리스트 스타일
+      ol {
+        list-style-type: decimal;
+      }
     }
   }
 
@@ -52,9 +80,12 @@
     border: none;
     border-top: 1px solid #ccc;
   }
+
   .footer {
     margin: 50px 0;
-    padding-top: 10px;
-    border-top: 1px solid black;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 1.4rem;
+    color: #555;
   }
 }

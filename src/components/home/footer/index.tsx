@@ -32,9 +32,12 @@ const Footer = () => {
           <span className={cn("sep")} aria-hidden>
             ·
           </span>
-          <Link href="/deletionpolicy" className={cn("link")}>
-            삭제약관
+          <Link href="/communityGuidelines" className={cn("link")}>
+            커뮤니티 가이드라인
           </Link>
+          {/* <Link href="/deletionpolicy" className={cn("link")}>
+            삭제약관
+          </Link> */}
         </nav>
       </div>
     </footer>
