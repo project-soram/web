@@ -72,6 +72,11 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <link rel="icon" href="/icons/rlogo.png" />
+        {/* Naver Site Verification */}
+        <meta
+          name="naver-site-verification"
+          content="6ad1ff1c8605a58b0c2d23cd5485cacddb45e98a"
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
