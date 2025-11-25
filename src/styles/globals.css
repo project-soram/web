@@ -1,5 +1,4 @@
-:root {
-  /* 기본 배경/글자색 (라이트) */
+/* :root {
   --background: #fff8f8;
   --foreground: #0b1020;
 }
@@ -9,7 +8,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
