@@ -1,7 +1,15 @@
 .container {
+  //  배경색을 흰색으로 고정 (다크모드 무시)
+  background-color: #ffffff;
+
+  //  컨텐츠가 적어도 화면 전체를 흰색으로 채우기 위해 최소 높이 설정
+  min-height: 100vh;
+
   padding: 20px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
+
+  //   배경이 흰색이 되었으므로, 글자는 검은색(#222)이 잘 보입니다.
   color: #222;
 
   h1 {
@@ -22,7 +30,7 @@
   .section-content {
     padding: 10px 0;
 
-    // ✅ 순서 있는 리스트: 숫자 보이게
+    //  순서 있는 리스트: 숫자 보이게
     ol {
       list-style-type: decimal; // override 전역 스타일
       padding-left: 20px;
@@ -44,10 +52,12 @@
       }
     }
 
-    // ✅ 순서 없는 리스트: 동그라미 보이게
+    //  순서 없는 리스트: 동그라미 보이게
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
+      // 다크모드일 때 list-style 컬러가 안 보일 수 있으므로 명시
+      color: #222;
 
       li {
         margin-bottom: 6px;
@@ -68,5 +78,32 @@
     strong {
       font-weight: bold;
     }
+  }
+}
+
+// privacyPage.module.scss
+
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+
+    //  [추가] 테이블 안의 글자색도 확실하게 검정으로 고정
+    color: #222;
+  }
+
+  th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    //  [추가] 헤더 글자색 고정
+    color: #222;
   }
 }
