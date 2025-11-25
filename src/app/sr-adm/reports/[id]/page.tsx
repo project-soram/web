@@ -163,18 +163,6 @@ const ReportDetailPage = () => {
     return "제재하기";
   };
 
-  // 타입 가드 함수들 생략 (기존 코드 유지)
-  const isVoiceResponse = (content: any): content is ReportedVoiceResponse => {
-    return (
-      report?.type === "VOICE_RESPONSE" && content && "topicBox" in content
-    );
-  };
-  const isProfileAnswerArray = (
-    content: any
-  ): content is ReportedProfileAnswer[] => {
-    return report?.type === "USER_PROFILE" && Array.isArray(content);
-  };
-
   return (
     <div className={cn("pageContent")}>
       <div className={cn("pageHeader")}>

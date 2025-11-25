@@ -384,7 +384,7 @@ const Privacypage = () => {
             <br />
             성명 : 이형석
             <br />
-            연락처 : 카카오톡 플러스 채널 "소람" (ID: @soram_official) 또는 앱
+            연락처 : 카카오톡 플러스 채널 {'"소람"'} (ID: @soram_official) 또는 앱
             내 1:1 문의
           </li>
         </ul>
